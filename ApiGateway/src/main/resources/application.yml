@@ -21,3 +21,29 @@ spring:
             - Path=/ratings/**
   config:
     import: configserver:http://localhost:5555
+
+#okta configuration for api gateway
+
+#okta:
+#  oauth2:
+#    issuer: https://dev-01778054.okta.com/oauth2/default
+#    audience: api://default
+#    client-id: 0oangz9yg9xtIIYr35d7
+#    client-secret: I3Qe1H7SR6Ak9AG-tUSrvJ-7rT5GCygmXP8C4hMgTFGeY2-UEQdIbzMGuPbWqN6Q
+#    scopes: openid, profile, email, offline_access
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: 0oangz9yg9xtIIYr35d7
+            client-secret: I3Qe1H7SR6Ak9AG-tUSrvJ-7rT5GCygmXP8C4hMgTFGeY2-UEQdIbzMGuPbWqN6Q
+            scope: openid, profile, email, offline_access
+        provider:
+          okta:
+            issuer-uri: https://dev-01778054.okta.com/oauth2/default
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-01778054.okta.com/oauth2/default

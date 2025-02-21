@@ -15,3 +15,7 @@ spring:
   config:
     import: configserver:http://localhost:5555
 
+okta:
+  oauth2:
+    issuer: https://dev-01778054.okta.com/oauth2/default
+    audience: api://default
